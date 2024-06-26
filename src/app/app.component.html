@@ -1,0 +1,22 @@
+<!--making component as child component.-->
+
+
+<!--<h1>Angular Router App</h1>
+<nav>
+  <ul>-->
+   <!-- <li><a routerLink="/component" routerLinkActive="active" ariaCurrentWhenActive="page">Test Component</a></li>-->
+   <!-- <li><a routerLink="/component1" routerLinkActive="active" ariaCurrentWhenActive="page">Test1 Component</a></li>
+    <li><a routerLink="/component2" routerLinkActive="active" ariaCurrentWhenActive="page">Test2 Component</a></li>
+    <li><a routerLink="/notfound" routerLinkActive="active" ariaCurrentWhenActive="page">Not Found Page</a></li>
+  </ul>
+</nav>-->
+<h1>Button State</h1>
+
+<!--<input class="switch" type="checkbox" [checked]="active" (click)="toggleState()">
+{{ active ? 'active state: 1' : 'active state: 0' }}-->
+
+<!-- The routed views render in the <router-outlet>-->
+    <!--<router-outlet></router-outlet>-->
+    <app-toggle-button [active]="active" (stateChanged)="handleStateChanged($event)"></app-toggle-button>
+    <app-togglebutton1 [active]="active" (stateChanged)="handleStateChanged($event)"></app-togglebutton1>
+    {{ active ? 'active state: 1' : 'active state: 0' }}
