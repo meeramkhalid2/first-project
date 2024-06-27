@@ -1,0 +1,81 @@
+// problem 1
+const prompt = require("prompt-sync")(); // Import the prompt library
+
+//let arr = [12, 33, 55, 667, 8];
+//let input = prompt("Enter a number: "); // Get user input using prompt
+// input = Number.parseInt(input); // Convert to a number
+// arr.push(input);
+// console.log(arr);
+
+//problem 2
+// let arr = [12, 33, 55, 667, 8];
+// let input = prompt("En/ter a number");
+// while (input != 0) {
+// input = Number.parseInt(input);
+// arr.push(input);
+// console.log(arr);
+// input = prompt("Enter a number");
+//}
+
+//problem 3
+//let arr = [12, 33, 55, 667, 8, 30, 10];
+// let ar = arr.filter((a) => a % 10 == 0);
+// console.log(ar);
+
+//problem 4
+let arr = [12, 33, 55, 667, 8, 30, 10];
+let ar = arr.map((value) => value * value);
+console.log(ar);
+
+//problem 5, factorial
+let array = [1, 2, 3, 4];
+let a1 = array.reduce((v1, v2) => {
+  return v1 * v2;
+});
+console.log(a1);
+
+//testing
+const arrr = [12, 33];
+//arrr = [1, 2]; // will not be changed and throw error
+arrr[0] = 3;
+console.log(arrr);
+
+// QUESTION of types_print keys of object recursively and input can be of array of objects or simply an object
+const arrayofobj = [
+  { id: 2, name: "Bob", age: 25, city: "New York" },
+  { idno: 3, emp: "Charlie", country: "Canada", hobbies: "Reading" },
+  4345,
+  {
+    address: {
+      street: "123 Main St",
+      city: "Anytown",
+      country: "USA",
+    },
+  },
+];
+
+//we have 2 possible conditions that can be an object or an array
+function printingkeysRec(arrayofobj) {
+  if (Array.isArray(arrayofobj)) {
+    // if it is initialy array or obj shuru se hi
+    arrayofobj.forEach((ele) => {
+      //foreach ele in array check if it is an obj or not
+      if (typeof ele === "object" && ele !== null) {
+        //console.log(ele)
+        printingkeysRec(ele); // Recursively print keys of nested objects as in recfunc it goes to else if part when ele is passed as parameter
+      }
+    });
+  } 
+  else if (typeof arrayofobj === "object" && arrayofobj !== null) {
+    // agr humaray pas sirf obj hi hai to ye loop ya phr array k obj k ander ek or obj
+    // Handle objects only
+    for (let key in arrayofobj) {
+     // console.log(Object.values(arrayofobj));
+      console.log(`${key}: ${arrayofobj[key]}`);
+      //console.log(key); // Print keys using for in loop
+      printingkeysRec(arrayofobj[key]); // Recursively print keys of nested objects
+    }
+  }
+}
+
+printingkeysRec(arrayofobj);
